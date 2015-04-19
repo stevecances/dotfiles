@@ -26,3 +26,5 @@
 	path =
 [push]
 	default = current
+[rerere]
+	enabled = true
