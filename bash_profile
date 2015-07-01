@@ -5,6 +5,8 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 alias lab='cd /Users/mbigorne/Documents/Lab'
 alias app='cd /Users/mbigorne/Documents/app'
 alias myip='ifconfig en1 | grep "inet " | cut -d" " -f2'
+alias java8='setjdk 1.8'
+alias java7='setjdk 1.7'
 
 # Git
 source /usr/local/opt/git/etc/bash_completion.d/git-completion.bash
@@ -29,3 +31,23 @@ export PS1='\u@\h:\W$(__git_ps1 " (%s)")\$ '
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
+function setjdk() {
+  if [ $# -ne 0 ]; then
+   removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
+   if [ -n "${JAVA_HOME+x}" ]; then
+    removeFromPath $JAVA_HOME
+   fi
+   export JAVA_HOME=`/usr/libexec/java_home -v $@`
+   export PATH=$JAVA_HOME/bin:$PATH
+  fi
+
+  echo JAVA_HOME set to $JAVA_HOME
+
+  java -version
+}
+
+function removeFromPath() {
+  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
+}
