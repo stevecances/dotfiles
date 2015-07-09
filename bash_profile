@@ -1,5 +1,5 @@
 export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
+export LSCOLORS=dxfxcxdxbxegedabagacad
 
 # Alias
 alias lab='cd /Users/mbigorne/Documents/Lab'
