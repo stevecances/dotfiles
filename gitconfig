@@ -16,7 +16,7 @@
 	pr = pull --rebase
 [core]
 	pager = cat
-	editor = mate -w
+	editor = subl --wait
 	excludesfile = /Users/mathieu/.gitignore_global
 	quotepath = false
 	autocrlf = input
