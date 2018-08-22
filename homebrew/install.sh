@@ -10,11 +10,6 @@ brew update
 brew doctor
 brew upgrade
 
-if [[ $(brew tap) != *cask* ]]; then
-	brew tap phinze/homebrew-cask
-	brew install brew-cask
-fi
-
 # Install Missing Homebrew formulas
 #
 brew list > /tmp/installed

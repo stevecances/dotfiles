@@ -10,10 +10,11 @@
 	st = status -sb
 	ci = commit
 	co = checkout
-	fp = format-patch
 	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
 	oops = commit --amend -a -C HEAD
 	pr = pull --rebase
+	pra = pull --rebase --autostash
+	pf = push --force-with-lease
 [core]
 	pager = cat
 	editor = subl --wait
@@ -28,3 +29,5 @@
 	default = current
 [rerere]
 	enabled = true
+[pull]
+    rebase = preserve
