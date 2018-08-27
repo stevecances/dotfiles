@@ -18,12 +18,3 @@ TO_INSTALL=$(comm -13 /tmp/installed formulas)
 if [ ! -z "${TO_INSTALL}" ]; then
 	brew install ${TO_INSTALL}
 fi
-
-# Install Missing Cask formulas
-#
-brew cask list > /tmp/installed
-TO_INSTALL=$(comm -13 /tmp/installed cask-formulas)
-
-if [ ! -z "${TO_INSTALL}" ]; then
-	brew cask install ${TO_INSTALL}
-fi

@@ -12,3 +12,9 @@ nvm
 ansible
 bash-completion
 jq
+kubernetes-cli
+kubectx
+httpie
+watch
+htop
+fzf
