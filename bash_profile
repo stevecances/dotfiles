@@ -6,10 +6,8 @@ source /usr/local/opt/git/etc/bash_completion.d/git-completion.bash
 source /usr/local/opt/git/etc/bash_completion.d/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWSTASHSTATE=1 GIT_PS1_SHOWUNTRACKEDFILES=1
 
-# PS1
-export PS1='\u@\h:\W$(__git_ps1 " (%s)")\$ '
-
-[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 function setjdk() {
   if [ $# -ne 0 ]; then
@@ -36,7 +34,85 @@ fi
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
+
+# fzf : command line fuzzy finder
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # Alias
 alias java8='setjdk 1.8'
-alias agg="ag -C 2 --ignore-dir={ownpage-site,.git,log,node_modules,vendor,tmp,angular,sql_dump,*.js} $1"
+alias java10='setjdk 10'
+alias agg="ag -C 2 --ignore-dir={.git,log,node_modules,vendor,tmp,angular,sql_dump,*.js} $1"
 alias gl="git lg -n 10"
+
+#################################### Servio ################################
+
+BLACK=$(tput setaf 0)
+BLACK_BG=$(tput setab 0)
+RED=$(tput setaf 1)
+RED_BG=$(tput setab 1)
+GREEN=$(tput setaf 2)
+GREEN_BG=$(tput setab 2)
+LIME_YELLOW=$(tput setaf 190)
+LIME_YELLOW_BG=$(tput setab 190)
+YELLOW=$(tput setaf 3)
+YELLOW_BG=$(tput setab 3)
+POWDER_BLUE=$(tput setaf 153)
+POWDER_BLUE_BG=$(tput setab 153)
+BLUE=$(tput setaf 4)
+BLUE_BG=$(tput setab 4)
+MAGENTA=$(tput setaf 5)
+MAGENTA_BG=$(tput setab 5)
+CYAN=$(tput setaf 6)
+CYAN_BG=$(tput setab 6)
+WHITE=$(tput setaf 7)
+WHITE_BG=$(tput setab 7)
+BRIGHT=$(tput bold)
+NORMAL=$(tput sgr0)
+BLINK=$(tput blink)
+REVERSE=$(tput smso)
+UNDERLINE=$(tput smul)
+
+
+__kube_ps1()
+{
+    CONTEXT=$(cat ~/.kube/config | grep "current-context:" --color=NO | sed "s/current-context: //")
+
+    if [ -n "$CONTEXT" ]; then
+        if [ "$CONTEXT" = "prod" ]; then
+            echo -e "😬😱${BRIGHT}${WHITE}${RED_BG}${BLINK} ${CONTEXT} ${NORMAL}😬😱"
+        else
+            echo -e "${YELLOW}${CONTEXT}${NORMAL}"
+        fi
+    fi
+}
+
+__gcloud_ps1()
+{
+    CONTEXT=$(cat ~/.config/gcloud/active_config)
+
+    if [ -n "$CONTEXT" ]; then
+        if [ "$CONTEXT" = "prod" ]; then
+            echo -e "😬😱${BRIGHT}${WHITE}${RED_BG}${BLINK} ${CONTEXT} ${NORMAL}😬😱"
+        else
+            echo -e "${YELLOW}${CONTEXT}${NORMAL}"
+        fi
+    fi
+}
+
+alias dl='cd ~/Downloads'
+alias projects='cd /Users/mbigorne/projects'
+alias servio='cd /Users/mbigorne/projects/servio'
+alias ng-run-candidat='servio && cd portail-candidat && ./node_modules/.bin/ng run candidat:serve'
+alias ng-run-gestion='servio && cd portail-candidat && ./node_modules/.bin/ng run gestion:serve'
+
+
+# PS1
+#export PS1='\W$(__git_ps1 " (%s)")\$ '
+__parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/'
+}
+
+
+export PS1='\[${CYAN}\]k:\[${NORMAL}\]$(__kube_ps1)\[${GREEN}\] \[${CYAN}\]g:\[${NORMAL}\]$(__gcloud_ps1)\[${NORMAL}\]\[${POWDER_BLUE}\] \w\[${MAGENTA}\]$(__git_ps1 " (%s)")\[${NORMAL}\]\n$ '
