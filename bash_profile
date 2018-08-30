@@ -106,7 +106,9 @@ alias projects='cd /Users/mbigorne/projects'
 alias servio='cd /Users/mbigorne/projects/servio'
 alias ng-run-candidat='servio && cd portail-candidat && ./node_modules/.bin/ng run candidat:serve'
 alias ng-run-gestion='servio && cd portail-candidat && ./node_modules/.bin/ng run gestion:serve'
-
+alias cluster-dev='kubectx dev && gcloud config configurations activate dev'
+alias cluster-recette='kubectx recette && gcloud config configurations activate recette'
+alias cluster-preprod='kubectx preprod && gcloud config configurations activate preprod'
 
 # PS1
 #export PS1='\W$(__git_ps1 " (%s)")\$ '
