@@ -45,6 +45,9 @@ alias java8='setjdk 1.8'
 alias java10='setjdk 10'
 alias agg="ag -C 2 --ignore-dir={.git,log,node_modules,vendor,tmp,angular,sql_dump,*.js} $1"
 alias gl="git lg -n 10"
+alias brew-update='brew update && brew upgrade && brew cleanup && brew doctor && terminal-notifier -title Brew -message "Upgrade finished"'
+alias dl='cd ~/Downloads'
+alias projects='cd /Users/mbigorne/projects'
 
 #################################### Servio ################################
 
@@ -101,8 +104,6 @@ __gcloud_ps1()
     fi
 }
 
-alias dl='cd ~/Downloads'
-alias projects='cd /Users/mbigorne/projects'
 alias servio='cd /Users/mbigorne/projects/servio'
 alias ng-run-candidat='servio && cd portail-candidat && ./node_modules/.bin/ng run candidat:serve'
 alias ng-run-gestion='servio && cd portail-candidat && ./node_modules/.bin/ng run gestion:serve'
@@ -111,10 +112,8 @@ alias cluster-recette='kubectx recette && gcloud config configurations activate 
 alias cluster-preprod='kubectx preprod && gcloud config configurations activate preprod'
 
 # PS1
-#export PS1='\W$(__git_ps1 " (%s)")\$ '
 __parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/'
 }
-
 
 export PS1='\[${CYAN}\]k:\[${NORMAL}\]$(__kube_ps1)\[${GREEN}\] \[${CYAN}\]g:\[${NORMAL}\]$(__gcloud_ps1)\[${NORMAL}\]\[${POWDER_BLUE}\] \w\[${MAGENTA}\]$(__git_ps1 " (%s)")\[${NORMAL}\]\n$ '
