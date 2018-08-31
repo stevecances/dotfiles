@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+# Shell prompt based on the Solarized Dark theme.
+# Inspired by https://github.com/mathiasbynens/dotfiles
+export TERM='xterm-256color';
+
+__kube_ps1()
+{
+    CONTEXT=$(cat ~/.kube/config | grep "current-context:" --color=NO | sed "s/current-context: //")
+
+    if [ -n "$CONTEXT" ]; then
+        if [ "$CONTEXT" = "prod" ]; then
+            echo -e "${red}${CONTEXT}${reset} 😱"
+        else
+            echo -e "${yellow}${CONTEXT}${reset}"
+        fi
+    fi
+}
+
+__gcloud_ps1()
+{
+    CONTEXT=$(cat ~/.config/gcloud/active_config)
+
+    if [ -n "$CONTEXT" ]; then
+        if [ "$CONTEXT" = "prod" ]; then
+            echo -e "${red}${CONTEXT}${reset} 😱"
+        else
+            echo -e "${yellow}${CONTEXT}${reset}"
+        fi
+    fi
+}
+
+export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWSTASHSTATE=1 GIT_PS1_SHOWUNTRACKEDFILES=1
+
+tput sgr0; # reset colors
+bold=$(tput bold);
+reset=$(tput sgr0);
+# Solarized colors, taken from http://git.io/solarized-colors.
+black=$(tput setaf 0);
+blue=$(tput setaf 33);
+cyan=$(tput setaf 37);
+green=$(tput setaf 64);
+orange=$(tput setaf 166);
+purple=$(tput setaf 125);
+red=$(tput setaf 124);
+violet=$(tput setaf 61);
+white=$(tput setaf 15);
+yellow=$(tput setaf 136);
+
+PS1='\[${cyan}\]k:\[${reset}\]$(__kube_ps1)\[${green}\]';                     	# kubectl
+PS1+=' \[${cyan}\]g:\[${reset}\]$(__gcloud_ps1)\[${reset}\]';					# gcloud
+PS1+=' \[${cyan}\]\w';															# current dir
+PS1+='\[${violet}\]$(__git_ps1 " [%s]")\[${reset}\]'							# git
+PS1+="\n";
+PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+export PS1;
+
+PS2="\[${yellow}\]→ \[${reset}\]";
+export PS2;

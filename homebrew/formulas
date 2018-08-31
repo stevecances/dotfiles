@@ -19,3 +19,5 @@ watch
 htop
 fzf
 terminal-notifier
+pv
+bat

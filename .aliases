@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+colorflag="-G"
+export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
+alias ls="command ls -lF ${colorflag}"
+alias la="ls -laF ${colorflag}"
+
+alias grep='grep --color=auto'
+alias agg="ag -C 2 --ignore-dir={.git,log,node_modules,vendor,tmp,angular,sql_dump,*.js} $1"
+
+alias dl='cd ~/Downloads'
+alias projects='cd /Users/mbigorne/projects'
+alias dotfiles='cd /Users/mbigorne/projects/dotfiles'
+
+alias java8='setjdk 1.8'
+alias java10='setjdk 10'
+alias gl="git lg -n 10"
+alias brew-update='brew update && brew upgrade && brew cleanup && brew doctor && terminal-notifier -title Brew -message "Upgrade finished"'
+alias k='kubectl'
+
+# Servio
+alias servio='cd /Users/mbigorne/projects/servio'
+alias ng-run-candidat='servio && cd portail-candidat && ./node_modules/.bin/ng run candidat:serve'
+alias ng-run-gestion='servio && cd portail-candidat && ./node_modules/.bin/ng run gestion:serve'
+alias cluster-dev='kubectx dev && gcloud config configurations activate dev'
+alias cluster-recette='kubectx recette && gcloud config configurations activate recette'
+alias cluster-preprod='kubectx preprod && gcloud config configurations activate preprod'
+
+# Add tab completion for alias k
+complete -o default -F __start_kubectl k

@@ -11,8 +11,7 @@
 	ci = commit
 	co = checkout
 	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
-	oops = commit --amend -a -C HEAD
-	pr = pull --rebase
+	oops = commit --amend --reuse-message=HEAD
 	pra = pull --rebase --autostash
 	pf = push --force-with-lease
 [core]
@@ -22,6 +21,9 @@
 	quotepath = false
 	autocrlf = input
 	ignorecase = true
+	# Make `git rebase` safer on macOS
+	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+	trustctime = false	
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
@@ -31,3 +33,7 @@
 	enabled = true
 [pull]
     rebase = preserve
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
