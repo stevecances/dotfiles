@@ -48,6 +48,10 @@ alias gl="git lg -n 10"
 alias brew-update='brew update && brew upgrade && brew cleanup && brew doctor && terminal-notifier -title Brew -message "Upgrade finished"'
 alias dl='cd ~/Downloads'
 alias projects='cd /Users/mbigorne/projects'
+alias k='kubectl'
+
+# Add tab completion for alias k
+complete -o default -F __start_kubectl k
 
 #################################### Servio ################################
 
