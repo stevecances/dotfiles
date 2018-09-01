@@ -27,3 +27,4 @@ brew install pv
 brew install bat
 brew install diff-so-fancy
 brew install tldr
+brew install gnupg
