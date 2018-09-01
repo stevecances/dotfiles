@@ -1,13 +1,18 @@
 [user]
+
 	email = mathieu.bigorne@gmail.com
 	name = Mathieu Bigorne
 	signingkey = 86EEAF88413D29A8
+
 [color]
+
 	diff = auto
 	status = auto
 	branch = auto
 	ui = true
+
 [alias]
+
 	st = status -sb
 	ci = commit
 	co = checkout
@@ -15,7 +20,9 @@
 	oops = commit --amend --reuse-message=HEAD
 	pra = pull --rebase --autostash
 	pf = push --force-with-lease
+
 [core]
+
 	pager = cat
 	editor = subl --wait
 	excludesfile = /Users/mathieu/.gitignore_global
@@ -25,22 +32,35 @@
 	# Make `git rebase` safer on macOS
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false	
+
 [difftool "sourcetree"]
+
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
+
 [push]
+
 	default = current
+
 [rerere]
+
 	enabled = true
+
 [pull]
+
     rebase = preserve
+
 [color "status"]
+
 	added = yellow
 	changed = green
 	untracked = cyan
+
 [pager]
+
    diff = diff-so-fancy | less --tabs=1,5 -RFX
    show = diff-so-fancy | less --tabs=1,5 -RFX
+
 [commit]
 	# https://help.github.com/articles/signing-commits-using-gpg/
 	gpgsign = true
