@@ -23,3 +23,5 @@ export NVM_DIR="$HOME/.nvm"
 # Open Sublime when pressing ctrl+o in FZF 
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(subl {})+abort'"
 
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
