@@ -3,6 +3,8 @@
 # Make sublime the default editor.
 export EDITOR='subl';
 
+export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
+
 # Increase Bash history size. Allow 32³ entries; the default is 500.
 export HISTSIZE='32768';
 export HISTFILESIZE="${HISTSIZE}";
@@ -17,3 +19,7 @@ export MANPAGER='less -X';
 
 # Node version manager
 export NVM_DIR="$HOME/.nvm"
+
+# Open Sublime when pressing ctrl+o in FZF 
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(subl {})+abort'"
+

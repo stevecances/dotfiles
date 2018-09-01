@@ -28,3 +28,4 @@ brew install bat
 brew install diff-so-fancy
 brew install tldr
 brew install gnupg
+brew install fd

@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-colorflag="-G"
-export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
-alias ls="command ls -lF ${colorflag}"
-alias la="ls -laF ${colorflag}"
+alias ls="command ls -lFG"
+alias la="ls -laFG"
 alias cat='bat'
-
 alias grep='grep --color=auto'
+
 alias agg="ag -C 2 --ignore-dir={.git,log,node_modules,vendor,tmp,angular,*.js} $1"
+alias preview="fzf --preview 'bat --color \"always\" {}'"
 
 alias dl='cd ~/Downloads'
 alias projects='cd /Users/mbigorne/projects'
