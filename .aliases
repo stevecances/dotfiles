@@ -27,8 +27,8 @@ alias cluster-recette='kubectx recette && gcloud config configurations activate 
 alias cluster-preprod='kubectx preprod && gcloud config configurations activate preprod'
 alias start-env='servio && docker-compose up -d db pubsub'
 alias proxy-db-dev='servio && docker-compose up -d db-proxy-dev'
-alias proxy-db-rec='servio && docker-compose up -d db-proxy-dev'
-alias proxy-db-preprod='servio && docker-compose up -d db-proxy-dev'
+alias proxy-db-rec='servio && docker-compose up -d db-proxy-rec'
+alias proxy-db-preprod='servio && docker-compose up -d db-proxy-preprod'
 
 # Kubernetes
 alias k='kubectl'
