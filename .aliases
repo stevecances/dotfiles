@@ -11,7 +11,7 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 
 alias dl='cd ~/Downloads'
 alias projects='cd /Users/mbigorne/projects'
-alias dotfiles='cd /Users/mbigorne/projects/dotfiles'
+alias dot='cd /Users/mbigorne/projects/dotfiles'
 
 alias java8='setjdk 1.8'
 alias java10='setjdk 10'

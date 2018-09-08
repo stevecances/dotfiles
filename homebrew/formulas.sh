@@ -5,7 +5,6 @@ brew doctor
 brew upgrade
 
 brew install git
-brew install git-extras
 brew install git-crypt
 brew install imagemagick
 brew install maven
