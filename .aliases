@@ -30,6 +30,7 @@ alias destroy-env='servio && docker-compose rm -f db pubsub'
 alias proxy-db-dev='servio && docker-compose up db-proxy-dev'
 alias proxy-db-rec='servio && docker-compose up db-proxy-rec'
 alias proxy-db-preprod='servio && docker-compose up db-proxy-preprod'
+alias tunnel-pic='gcloud compute --project "partnaire-2022-dev" ssh --zone "europe-west1-b" "pic" -- -v -N -L 8080:localhost:8080'
 
 # Kubernetes
 alias k='kubectl'
