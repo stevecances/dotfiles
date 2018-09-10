@@ -29,3 +29,4 @@ brew install tldr
 brew install gnupg
 brew install fd
 brew install coreutils
+brew install telnet
