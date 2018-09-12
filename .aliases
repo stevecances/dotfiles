@@ -25,6 +25,7 @@ alias ng-run-gestion='servio && cd portail-candidat && ./node_modules/.bin/ng ru
 alias cluster-dev='kubectx dev && gcloud config configurations activate dev'
 alias cluster-recette='kubectx recette && gcloud config configurations activate recette'
 alias cluster-preprod='kubectx preprod && gcloud config configurations activate preprod'
+alias cluster-prod='confirm "Tu veux vraiment passer sur le prod ? [y/N] 😱" && kubectx prod && gcloud config configurations activate prod'
 alias start-env='servio && docker-compose up db pubsub'
 alias destroy-env='servio && docker-compose rm -f db pubsub'
 alias proxy-db-dev='servio && docker-compose up db-proxy-dev'
