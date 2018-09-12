@@ -10,7 +10,7 @@ __kube_ps1()
 
     if [ -n "$CONTEXT" ]; then
         if [ "$CONTEXT" = "prod" ]; then
-            echo -e "${red}${CONTEXT}${reset} 😱"
+            echo -e "${red}${CONTEXT}${reset} 😱 "
         else
             echo -e "${yellow}${CONTEXT}${reset}"
         fi
@@ -23,7 +23,7 @@ __gcloud_ps1()
 
     if [ -n "$CONTEXT" ]; then
         if [ "$CONTEXT" = "prod" ]; then
-            echo -e "${red}${CONTEXT}${reset} 😱"
+            echo -e "${red}${CONTEXT}${reset} 😱 "
         else
             echo -e "${yellow}${CONTEXT}${reset}"
         fi
