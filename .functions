@@ -31,3 +31,23 @@ confirm() {
             ;;
     esac
 }
+
+function _servioBackupDB() {
+  servio
+  backupName="db-candidat-backup-$(date +"%Y-%m-%dT%H:%M:%S").tar.gz"
+  docker-compose stop db
+  echo "creating $backupName"
+  tar -czf $backupName postgres/db-candidat/
+  mv $backupName postgres/backups/
+  docker-compose start db
+}
+
+function _servioRestoreDB() {
+  servio
+  docker-compose rm --force --stop db
+  rm -fr postgres/db-candidat/*
+  backup_to_restore=$(ls -r postgres/backups | _inline_fzf | awk '{print $9}')
+  echo "Restoring $backup_to_restore"
+  tar -xzf postgres/backups/$backup_to_restore
+  docker-compose up -d db
+}
