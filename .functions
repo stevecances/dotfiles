@@ -32,22 +32,52 @@ confirm() {
     esac
 }
 
+function klog() {
+    local line_count=10
+    if [[ $1 =~ ^[-]{0,1}[0-9]+$ ]]; then
+        line_count="$1"
+        shift
+    fi
+
+    arg_pair=$(kubectl get po --all-namespaces | _inline_fzf | awk '{print $1, $2}')
+    pods_out=$(echo "$arg_pair" | xargs kubectl get po -o=jsonpath='{.spec.containers[*].name}' -n)
+    pod_choosen=$(echo "$pods_out" |  tr ' ' "\n" | _inline_fzf_nh)
+    echo kubectl logs -n "${arg_pair} -c ${pod_choosen}" --tail="${line_count}" "$@"
+    eval kubectl logs -n "${arg_pair} -c ${pod_choosen}" --tail="${line_count}" "$@"
+}
+
+function kget() {
+    case "$1" in
+    # TODO Add more
+    nodes|no|node|ns|namespace|namespaces)
+        kubectl get "${1}" | _inline_fzf | awk '{print $1}' | xargs kubectl get -o yaml "${1}"
+    ;;
+    *)
+        kubectl get "${1}" --all-namespaces | _inline_fzf | awk '{print $1, $2}' | xargs kubectl get -o yaml "${1}" -n
+    ;;
+    esac
+}
+
 function _servioBackupDB() {
   servio
   backupName="db-candidat-backup-$(date +"%Y-%m-%dT%H:%M:%S").tar.gz"
   docker-compose stop db
-  echo "creating $backupName"
+  echo "Creating $backupName"
   tar -czf $backupName postgres/db-candidat/
   mv $backupName postgres/backups/
   docker-compose start db
+  cd -
 }
 
 function _servioRestoreDB() {
   servio
+  backup_to_restore=$(ls -r postgres/backups | _inline_fzf | awk '{print $9}')
+  [ "$backup_to_restore" == "" ] && echo "Abort restore" && return
+
   docker-compose rm --force --stop db
   rm -fr postgres/db-candidat/*
-  backup_to_restore=$(ls -r postgres/backups | _inline_fzf | awk '{print $9}')
   echo "Restoring $backup_to_restore"
   tar -xzf postgres/backups/$backup_to_restore
   docker-compose up -d db
+  cd -
 }
