@@ -47,13 +47,10 @@ violet=$(tput setaf 61);
 white=$(tput setaf 15);
 yellow=$(tput setaf 136);
 
-PS1='\[${cyan}\]k:\[${reset}\]$(__kube_ps1)\[${green}\]';                     	# kubectl
+PS1='${yellow}\t \[${cyan}\]k:\[${reset}\]$(__kube_ps1)\[${green}\]';                     	# kubectl
 PS1+=' \[${cyan}\]g:\[${reset}\]$(__gcloud_ps1)\[${reset}\]';					# gcloud
 PS1+=' \[${cyan}\]\w';															# current dir
-PS1+='\[${violet}\]$(__git_ps1 " [%s]")\[${reset}\]'							# git
+PS1+='\[${violet}\]$(__git_ps1 " [%s]")'							# git
 PS1+="\n";
-PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+PS1+="\[${cyan}\]➜ \[${reset}\]"; # `$` (and reset color)
 export PS1;
-
-PS2="\[${yellow}\]→ \[${reset}\]";
-export PS2;
