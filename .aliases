@@ -28,12 +28,15 @@ alias cluster-preprod='kubectx preprod && gcloud config configurations activate 
 alias cluster-prod='confirm "Tu veux vraiment passer sur la prod ? [y/N] 😱" && kubectx prod && gcloud config configurations activate prod'
 alias start-env='servio && docker-compose up db pubsub'
 alias destroy-env='servio && docker-compose rm -f db pubsub'
+alias build-demo-rescue='servio && git pra ; mvn clean install -Dmaven.test.skip ; docker-compose build service-candidat service-authentification service-mail portail-candidat'
+alias start-demo-rescue='servio && docker-compose up --force-recreate service-candidat service-mail service-authentification portail-candidat'
 alias proxy-db-dev='servio && docker-compose up db-proxy-dev'
 alias proxy-db-rec='servio && docker-compose up db-proxy-rec'
 alias proxy-db-preprod='servio && docker-compose up db-proxy-preprod'
 alias tunnel-pic='gcloud compute --project "partnaire-2022-dev" ssh --zone "europe-west1-b" "pic" -- -v -N -L 8080:localhost:8080'
 alias backup-db-candidat='_servioBackupDB'
 alias restore-db-candidat='confirm "Le base actuelle sera écrasée, continuer ? [y/N] 😱" && _servioRestoreDB'
+alias destroy-db-candidat='confirm "Le base actuelle sera supprimée, continuer ? [y/N] 😱" && _servioDestroyDB'
 
 # Kubernetes
 alias k='kubectl'

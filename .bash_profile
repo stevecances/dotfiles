@@ -37,3 +37,6 @@ source /usr/local/opt/nvm/nvm.sh
 # GCloud utility
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
+
+# default java version
+setjdk 1.8
