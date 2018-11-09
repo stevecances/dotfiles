@@ -89,3 +89,7 @@ function _servioDestroyDB() {
   docker-compose up -d db
   cd -
 }
+
+portkill() {
+    lsof -ti:$1 | xargs kill
+}
