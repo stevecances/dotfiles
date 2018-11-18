@@ -40,8 +40,9 @@ alias ssh-pic='gcloud compute --project "partnaire-2022-dev" ssh --zone "europe-
 alias backup-db-candidat='_servioBackupDB'
 alias restore-db-candidat='confirm "Le base actuelle sera écrasée, continuer ? [y/N] 😱" && _servioRestoreDB'
 alias destroy-db-candidat='confirm "Le base actuelle sera supprimée, continuer ? [y/N] 😱" && _servioDestroyDB'
-alias logs-service-candidat='kail --svc=service-candidat --since=10m'
-alias logs-ingress='kail --ds=nginx-ingress-controller --since=10m'
+alias logs-service-candidat='stern service-candidat --timestamps --tail 1000'
+alias logs-ingress='stern nginx-ingress --timestamps --tail 1000'
+alias logs-all='stern ".*" --timestamps --tail 1000'
 
 # Kubernetes
 alias k='kubectl'
