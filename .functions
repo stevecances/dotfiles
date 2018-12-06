@@ -65,7 +65,7 @@ function _servioBackupDB() {
   echo "Creating $backupName"
   tar -czf $backupName postgres/db-candidat/
   mv $backupName postgres/backups/
-  docker-compose start db
+  docker-compose start db-candidat
   cd -
 }
 
@@ -78,7 +78,7 @@ function _servioRestoreDB() {
   rm -fr postgres/db-candidat/*
   echo "Restoring $backup_to_restore"
   tar -xzf postgres/backups/$backup_to_restore
-  docker-compose up -d db
+  docker-compose up -d db-candidat
   cd -
 }
 
@@ -86,7 +86,7 @@ function _servioDestroyDB() {
   servio
   docker-compose rm --force --stop db
   rm -fr postgres/db-candidat/*
-  docker-compose up -d db
+  docker-compose up -d db-candidat
   cd -
 }
 
