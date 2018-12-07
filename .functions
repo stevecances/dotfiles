@@ -61,7 +61,7 @@ function kget() {
 function _servioBackupDB() {
   servio
   backupName="db-candidat-backup-$(date +"%Y-%m-%dT%H:%M:%S").tar.gz"
-  docker-compose stop db
+  docker-compose stop db-candidat
   echo "Creating $backupName"
   tar -czf $backupName postgres/db-candidat/
   mv $backupName postgres/backups/
@@ -74,7 +74,7 @@ function _servioRestoreDB() {
   backup_to_restore=$(ls -lth postgres/backups | _inline_fzf | awk '{print $9}')
   [ "$backup_to_restore" == "" ] && echo "Abort restore" && return
 
-  docker-compose rm --force --stop db
+  docker-compose rm --force --stop db-candidat
   rm -fr postgres/db-candidat/*
   echo "Restoring $backup_to_restore"
   tar -xzf postgres/backups/$backup_to_restore
@@ -84,7 +84,7 @@ function _servioRestoreDB() {
 
 function _servioDestroyDB() {
   servio
-  docker-compose rm --force --stop db
+  docker-compose rm --force --stop db-candidat
   rm -fr postgres/db-candidat/*
   docker-compose up -d db-candidat
   cd -
