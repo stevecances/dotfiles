@@ -40,3 +40,8 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 
 # default java version
 setjdk 1.8
+
+# servio
+export SERVIO_LOCATION='/Users/mbigorne/projects/servio'
+export USERNAME='mbigorne'
+source ${SERVIO_LOCATION}/outils/dotfiles/.servio.sh

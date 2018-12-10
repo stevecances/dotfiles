@@ -58,38 +58,6 @@ function kget() {
     esac
 }
 
-function _servioBackupDB() {
-  servio
-  backupName="db-candidat-backup-$(date +"%Y-%m-%dT%H:%M:%S").tar.gz"
-  docker-compose stop db-candidat
-  echo "Creating $backupName"
-  tar -czf $backupName postgres/db-candidat/
-  mv $backupName postgres/backups/
-  docker-compose start db-candidat
-  cd -
-}
-
-function _servioRestoreDB() {
-  servio
-  backup_to_restore=$(ls -lth postgres/backups | _inline_fzf | awk '{print $9}')
-  [ "$backup_to_restore" == "" ] && echo "Abort restore" && return
-
-  docker-compose rm --force --stop db-candidat
-  rm -fr postgres/db-candidat/*
-  echo "Restoring $backup_to_restore"
-  tar -xzf postgres/backups/$backup_to_restore
-  docker-compose up -d db-candidat
-  cd -
-}
-
-function _servioDestroyDB() {
-  servio
-  docker-compose rm --force --stop db-candidat
-  rm -fr postgres/db-candidat/*
-  docker-compose up -d db-candidat
-  cd -
-}
-
 portkill() {
     lsof -ti:$1 | xargs kill
 }
