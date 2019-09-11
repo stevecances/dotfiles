@@ -44,6 +44,6 @@ setjdk 1.8
 # servio
 export SERVIO_LOCATION='/Users/mbigorne/projects/servio'
 export USERNAME='mbigorne'
-source ${SERVIO_LOCATION}/outils/dotfiles/.servio.sh
+source ${SERVIO_LOCATION}/tools/dotfiles/.servio.sh
 
 alias start-env='(servio && docker-compose up -d db-candidat pubsub redis mailcatcher)'
