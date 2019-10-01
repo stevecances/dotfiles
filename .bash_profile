@@ -44,6 +44,7 @@ setjdk 11
 # servio
 export SERVIO_LOCATION='/Users/mbigorne/projects/servio'
 export USERNAME='mbigorne'
+export GOOGLE_APPLICATION_CREDENTIALS='/Users/mbigorne/projects/servio/tools/ansible/output/dev/setup_service_accounts/service-candidat-key.json'
 source ${SERVIO_LOCATION}/tools/dotfiles/.servio.sh
 
 alias start-env='(servio && docker-compose up -d db-candidat pubsub redis mailcatcher)'
