@@ -44,5 +44,5 @@ setjdk 11
 # servio
 export SERVIO_LOCATION='/Users/mbigorne/projects/servio'
 export USERNAME='mbigorne'
-export GOOGLE_APPLICATION_CREDENTIALS='/Users/mbigorne/projects/servio/tools/ansible/output/dev/setup_service_accounts/service-candidat-key.json'
+export GOOGLE_APPLICATION_CREDENTIALS='${SERVIO_LOCATION}/tools/ansible/output/dev/setup_service_accounts/service-candidat-key.json'
 source ${SERVIO_LOCATION}/tools/dotfiles/.servio.sh

@@ -9,10 +9,6 @@ function setjdk() {
    export JAVA_HOME=`/usr/libexec/java_home -v $@`
    export PATH=$JAVA_HOME/bin:$PATH
   fi
-
-  echo JAVA_HOME set to $JAVA_HOME
-
-  java -version
 }
 
 function removeFromPath() {
