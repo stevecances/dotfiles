@@ -59,3 +59,4 @@ brew install redis
 brew install bash
 brew install skaffold
 brew install postgresql
+brew install kotlin
