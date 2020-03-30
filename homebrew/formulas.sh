@@ -22,7 +22,7 @@ brew cask install evernote
 brew cask install intellij-idea
 brew cask install iterm2
 brew cask install keka
-brew cask install spectacle
+brew cask install rectangle
 brew cask install microsoft-remote-desktop-beta
 brew cask install keystore-explorer
 
