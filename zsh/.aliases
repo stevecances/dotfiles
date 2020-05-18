@@ -18,7 +18,7 @@ alias gc="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch
 alias brew-update='brew update && brew upgrade && brew cleanup && brew doctor && terminal-notifier -title Brew -message "Upgrade finished"'
 
 # Kubernetes
-alias kubectl='kubecolor'
+#alias kubectl='kubecolor'
 alias k='kubectl'
 alias kdebug='kubectl run test --rm --restart=Never -it --image=ubuntu -- bash'
 

@@ -41,9 +41,9 @@ setjdk 20
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # servio
-export SERVIO_LOCATION='/Users/mbigorne/projects/servio'
-export SERVIO_ANNOUNCEMENTS_LOCATION='/Users/mbigorne/projects/servio-announcements'
-export USERNAME='mbigorne'
+export SERVIO_LOCATION='/Users/scances/projects/servio'
+export SERVIO_ANNOUNCEMENTS_LOCATION='/Users/scances/projects/servio-announcements'
+export USERNAME='scances'
 
 source ${SERVIO_LOCATION}/tools/dotfiles/.servio.sh
 

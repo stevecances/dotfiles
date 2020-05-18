@@ -7,6 +7,7 @@ brew upgrade
 brew tap homebrew/cask-versions
 brew tap hashicorp/tap
 
+brew install temurin
 brew install temurin@21
 brew install google-cloud-sdk
 brew install dropbox
@@ -15,7 +16,7 @@ brew install google-chrome
 brew install slack
 brew install sublime-text
 brew install alfred
-brew install carbon-copy-cloner
+#brew install carbon-copy-cloner
 brew install iterm2
 brew install keka
 brew install rectangle
@@ -56,7 +57,19 @@ brew install bash
 brew install postgresql
 brew install hashicorp/tap/terraform
 brew install powerlevel10k
-brew install miniconda
-brew install kubecolor
-brew install 1password
-brew install freelens
+#brew install miniconda
+#brew install kubecolor
+#brew install 1password
+#brew install freelens
+
+
+brew install docker
+brew install bitwarden
+brew install sourcetree
+brew install jetbrains-toolbox
+brew install dbeaver-community
+brew install transmission
+brew install yt-music
+brew install figma
+brew install gather
+brew install arc

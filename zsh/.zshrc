@@ -51,7 +51,14 @@ source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/compl
 
 # Kubetcl
 source <(kubectl completion zsh)
-compdef kubecolor=kubectl
 
 # default java version
 setjdk 21
+
+# Setup NVM
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+# Auto-load nvm version on directory change
+autoload -U add-zsh-hook
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc

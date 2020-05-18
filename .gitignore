@@ -1,2 +1,18 @@
-.idea
+# OS
 .DS_Store
+
+# IDEs
+.idea
+**/target
+**/.metadata
+**/RemoteSystemsTempFiles
+**/.project
+**/.settings
+**/.classpath
+**/.springBeans
+**/.sts4-cache/
+**.iml
+**.swp
+**.swo
+**/.factorypath
+.vscode

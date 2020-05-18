@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
-export SERVIO_LOCATION='/Users/mbigorne/projects/servio'
-export SERVIO_ANNOUNCEMENTS_LOCATION='/Users/mbigorne/projects/servio-announcements'
-export USERNAME='mbigorne'
+export SERVIO_LOCATION='/Users/scances/projects/servio'
+export SERVIO_ANNOUNCEMENTS_LOCATION='/Users/scances/projects/servio-announcements'
+export USERNAME='scances'
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True # voir https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke
 
 source ${SERVIO_LOCATION}/tools/dotfiles/.servio.sh
