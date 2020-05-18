@@ -25,6 +25,7 @@ brew cask install keka
 brew cask install rectangle
 brew cask install microsoft-remote-desktop-beta
 brew cask install keystore-explorer
+brew cask install lens
 
 brew install git
 brew install git-crypt
@@ -50,10 +51,10 @@ brew install coreutils
 brew install telnet
 brew install stern
 brew install rbenv
-brew install kubernetes-helm
+brew install helm
 brew install terraform
+brew install terraformer
 brew install autossh
-brew install bash-completion
 brew install derailed/k9s/k9s
 brew install redis
 brew install bash

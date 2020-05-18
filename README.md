@@ -28,7 +28,7 @@ cp .aliases .bash_profile .bash_prompt .exports .functions .gitconfig ~ && sourc
 ```
 
 # Upgrade to bash 5
-Add `/usr/local/bin/bash` to `/etc/shells`
+Append `/usr/local/bin/bash` to file `/etc/shells`
 ```shell
 chsh -s /usr/local/bin/bash
 ```
