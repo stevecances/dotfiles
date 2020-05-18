@@ -55,6 +55,10 @@ function kget() {
 }
 
 
+port() {
+    lsof -n -i:$1
+}
+
 portkill() {
     lsof -ti:$1 | xargs kill
 }

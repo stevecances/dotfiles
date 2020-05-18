@@ -18,7 +18,7 @@ sudo softwareupdate -i -a
 mkdir ~/projects
 cd ~/projects
 
-git clone https://github.com/mathieubigorne/dotfiles.git
+git clone https://github.com/stevecances/dotfiles.git
 cd dotfiles
 
 ./osx/set-defaults.sh
