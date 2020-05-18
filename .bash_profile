@@ -39,11 +39,11 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.i
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
 
 # default java version
-setjdk 11
+setjdk 14
 
 # servio
-export SERVIO_LOCATION='/Users/mbigorne/projects/servio'
-export USERNAME='mbigorne'
+export SERVIO_LOCATION='/Users/scances/projects/servio'
+export USERNAME='scances'
 export COMMANDEXECUTOR_ENABLED=false # Disable JobEx jobs
 
 source ${SERVIO_LOCATION}/tools/dotfiles/.servio.sh

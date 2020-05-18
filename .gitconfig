@@ -1,7 +1,7 @@
 [user]
 
-	email = mathieu.bigorne@gmail.com
-	name = Mathieu Bigorne
+	email = steve.cances@gmail.com
+	name = Steve Cancès
 
 [color]
 
@@ -12,13 +12,28 @@
 
 [alias]
 
-	st = status -sb
+	st = status --short --branch
 	ci = commit
 	co = checkout
 	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
-	oops = commit --amend --reuse-message=HEAD
+	lgv = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative -20
+	lgo = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative @...origin
+	diffo = diff @...origin
+	pr = pull --rebase
 	pra = pull --rebase --autostash
+	rb = rebase
+	rba = rebase --autostash
+	diffc = diff --cached
+	diffl = diff @~1 @
+	oops = commit --amend -C HEAD
+	oopsa = commit --amend -a -C HEAD
+	wip = commit -m “WIP”
+	wipa = commit -am “WIP”
+	p = push
 	pf = push --force-with-lease
+	ps = push --push-option ci.skip
+	pfs = push --force-with-lease --push-option ci.skip
+	s = switch
 
 [core]
 

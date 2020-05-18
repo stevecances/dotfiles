@@ -73,6 +73,10 @@ function git-clean-branch() {
   fi
 }
 
+port() {
+    lsof -n -i:$1
+}
+
 portkill() {
     lsof -ti:$1 | xargs kill
 }

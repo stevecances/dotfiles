@@ -9,6 +9,7 @@ brew tap homebrew/cask-versions
 brew tap AdoptOpenJDK/openjdk
 
 brew cask install adoptopenjdk11
+brew cask install adoptopenjdk14
 brew cask install google-cloud-sdk
 brew cask install dropbox
 brew cask install firefox
@@ -26,6 +27,8 @@ brew cask install rectangle
 brew cask install microsoft-remote-desktop-beta
 brew cask install keystore-explorer
 brew cask install lens
+brew cask install bitwarden
+brew cask install sourcetree
 
 brew install git
 brew install git-crypt
