@@ -29,6 +29,12 @@ brew cask install keystore-explorer
 brew cask install lens
 brew cask install bitwarden
 brew cask install sourcetree
+brew cask install dbeaver-community
+brew cask install google-chat
+brew cask install kap
+brew cask install transmission
+brew cask install vlc
+brew cask install yt-music
 
 brew install git
 brew install git-crypt
