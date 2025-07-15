@@ -13,6 +13,7 @@ alias dot='cd ~/projects/dotfiles'
 alias dot-apply='dot && cp zsh/.zshrc zsh/.aliases zsh/.functions zsh/.work zsh/.p10k.zsh .gitconfig ~ && source ~/.zshrc'
 
 alias gl="git lg -n 10"
+alias glb="git branch --sort=-committerdate | grep -v '*' | head | _servio_inline_fzf_nh | xargs git checkout"
 alias gc="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
 alias brew-update='brew update && brew upgrade && brew cleanup && brew doctor && terminal-notifier -title Brew -message "Upgrade finished"'
 
