@@ -7,8 +7,7 @@ brew upgrade
 brew tap homebrew/cask-versions
 brew tap hashicorp/tap
 
-brew install temurin
-brew install temurin20
+brew install temurin@21
 brew install google-cloud-sdk
 brew install dropbox
 brew install firefox
